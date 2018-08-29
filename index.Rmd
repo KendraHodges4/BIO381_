@@ -3,8 +3,9 @@ title: "BIO381 Portfolio"
 author: "Kendra Hodges"
 date: "August 29, 2018"
 output: 
-  html_document: 
-    theme: cosmo
+ prettydoc::html_pretty:
+  theme: cayman
+  highlight: github
 ---
 
 
