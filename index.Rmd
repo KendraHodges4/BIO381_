@@ -1,7 +1,7 @@
 ---
 title: "BIO381 Portfolio"
 author: "Kendra Hodges"
-date: "August 29, 2018"
+date: "Fall 2018"
 output: 
  prettydoc::html_pretty:
   theme: cayman
@@ -9,12 +9,18 @@ output:
 ---
 
 
-# **My Homeworks**
 
-### Homework 1
+# **Homework Assignments**
 
-* [Homework 1](testhw.html)
+### [Homework 1](homework1.html)
 
-* second item
+### [Homework 2](homework2.html)
+
+### [Homework 3](homework3.html)
+
+### [Homework 4](homework4.html)
+
+
+
 
 
