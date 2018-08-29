@@ -10,6 +10,7 @@ output:
 
 ![Welcome!](/Users/kendrahodges/Desktop/Australia.JPG)
 
+email: klhodges@uvm.edu
 
 
 # **Homework Assignments**
