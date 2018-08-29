@@ -8,7 +8,7 @@ output:
   highlight: github
 ---
 
-
+![Welcome!](/Users/kendrahodges/Desktop/Australia.JPG)
 
 # **Homework Assignments**
 
