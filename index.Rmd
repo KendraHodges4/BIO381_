@@ -1,7 +1,7 @@
 ---
 title: "BIO381 Portfolio"
 author: "Kendra Hodges"
-date: "8/29/2018"
+date: "August 29, 2018"
 output: 
   html_document: 
     theme: cosmo
