@@ -12,7 +12,7 @@ output:
 
 # **Homework Assignments**
 
-### [Homework 1](homework1.html)
+### [Homework 1: Create a Webpage](homework1.html)
 
 ### [Homework 2](homework2.html)
 
