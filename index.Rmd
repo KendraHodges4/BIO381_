@@ -1,5 +1,5 @@
 ---
-title: "BIO381 Portfolio"
+title: "BIO 381 Portfolio"
 author: "Kendra Hodges"
 date: "Fall 2018"
 output: 
@@ -9,6 +9,8 @@ output:
 ---
 
 ![Welcome!](/Users/kendrahodges/Desktop/Australia.JPG)
+
+
 
 # **Homework Assignments**
 
