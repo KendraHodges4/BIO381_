@@ -23,7 +23,7 @@ email: klhodges@uvm.edu
 
 ### [Homework 3](homework3.html)
 
-### [Homework 4: Atomoic Vectors and Regular Expressions](Homework4.Rmd)
+### [Homework 4: Atomoic Vectors and Regular Expressions](Homework4.html)
 
 ### [Homework 5](homework5.html) 
 
