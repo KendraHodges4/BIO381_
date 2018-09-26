@@ -12,16 +12,18 @@ output:
 
 email: klhodges@uvm.edu
 
+#**Helpful Links**
+
 
 # **Homework Assignments**
 
 ### [Homework 1: Create a Webpage](index.html)
 
-### [Homework 2](homework2.html)
+### [Homework 2](test.Rmd)
 
 ### [Homework 3](homework3.html)
 
-### [Homework 4](homework4.html)
+### [Homework 4: Atomoic Vectors and Regular Expressions](Homework4.Rmd)
 
 ### [Homework 5](homework5.html) 
 
