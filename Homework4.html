@@ -180,12 +180,12 @@ print(x)</code></pre>
 <h3>3.Create a vector of two random uniform numbers. In a spatial map,these can be interpreted as x and y coordinates that give the location of an individual (such as a marked forest tree in a plot that has been mapped.) Using one of R’s inverse trigonometry functions (asin(), acos(), or atan()), convert these numbers into polar coordinates (If you don’t know what polar coordinates are, read about them on the web or in your calculus textbook).</h3>
 <pre class="r"><code>xy &lt;-runif(2)
 print(xy)</code></pre>
-<pre><code>## [1] 0.4947446 0.3281605</code></pre>
+<pre><code>## [1] 0.9408616 0.6671046</code></pre>
 <pre class="r"><code>myVector&lt;- vector(mode=&quot;numeric&quot;,length=2)
 myVector[1] &lt;- sqrt((xy[1]^2+xy[2]^2))
 myVector[2] &lt;- atan(xy[2]/xy[1])
 print(myVector)</code></pre>
-<pre><code>## [1] 0.5936847 0.5856632</code></pre>
+<pre><code>## [1] 1.1533643 0.6167646</code></pre>
 </div>
 <div id="suppose-that-queue---csheep-fox-owl-ant-and-that-queue-represents-the-animals-that-are-lined-up-to-enter-noahs-ark-with-the-sheep-at-the-front-of-the-line.-using-r-expressions-update-the-queue-successively-as" class="section level3">
 <h3>4. Suppose that queue &lt;- c(“sheep”, “fox”, “owl”, “ant”) and that queue represents the animals that are lined up to enter Noah’s Ark, with the sheep at the front of the line. Using R expressions, update the queue successively as</h3>
