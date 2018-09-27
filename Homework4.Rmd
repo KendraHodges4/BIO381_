@@ -104,7 +104,9 @@ print(queue)
 ``` 
 ### b. the sheep enters the ark;
  
- ```{r}
+
+```{r}
+
 queue <-c(queue[2:5])
 print(queue)
 
