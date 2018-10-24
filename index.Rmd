@@ -19,13 +19,22 @@ email: klhodges@uvm.edu
 
 ### [Homework 1: Create a Webpage](index.html)
 
-### [Homework 2](test.Rmd)
+### [Homework 2: Typora Flowchart](test.Rmd)
 
 ### [Homework 3: Beamer Presentation](homework3.html)
 
 ### [Homework 4: Atomoic Vectors and Regular Expressions](Homework4.html)
 
 ### [Homework 5: dplyr](Homework5.html) 
+
+### [Homework 6: Probability Distributions](Homework6.html)
+
+### [Homework 7: Creating Fake Data Sets](Homework7.html)
+
+### [Homeowrk 8: Structured Programming](Homework8.html)
+
+
+
 
 
 
