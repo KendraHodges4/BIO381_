@@ -1,0 +1,211 @@
+---
+title: "Homework 7"
+author: "Kendra Hodges"
+date: "10/10/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Creating Fake Data Set
+```{r}
+library(tidyverse)
+
+ngroup <- 2
+nName <- c("Control","Treatment")
+nSize <- c(17,20)
+nMean <- c(30.3,20.3)
+nSD <- c(3,3)
+
+ID <- 1:(sum(nSize))
+
+freq <- c(rnorm(n=nSize[1], mean=nMean[1],sd=nSD[1]), 
+         rnorm(n=nSize[2], mean=nMean[2],sd=nSD[2]))
+variable<- rep(nName,nSize)
+table(variable)
+ANOdata <- data.frame(ID,variable,freq)
+str(ANOdata)
+
+head(ANOdata)
+
+ANOmodel <- aov(freq~variable,data=ANOdata)
+print(ANOmodel)
+z <- summary(ANOmodel)
+str(z)
+unlist(z)
+ANOsum <- list(Fval=unlist(z)[7],probF=unlist(z)[9])
+ANOsum
+```
+the values used for the mean, sample size, and variances produced significant values. After running this analysis several times, each time it generated a p value > 0.05 
+
+
+## Creating boxplot for data
+```{r}
+ANOPlot <- ggplot(data=ANOdata,
+                  aes(x=variable,y=freq,
+                      fill=variable)) +
+  geom_boxplot()
+print(ANOPlot)
+
+```
+
+## Adjusting the means of different groups
+### Same mean values
+
+```{r}
+library(tidyverse)
+
+ngroup <- 2
+nName <- c("Control","Treatment")
+nSize <- c(17,20)
+nMean <- c(30,30)
+nSD <- c(3,3)
+
+ID <- 1:(sum(nSize))
+
+freq <- c(rnorm(n=nSize[1], mean=nMean[1],sd=nSD[1]), 
+         rnorm(n=nSize[2], mean=nMean[2],sd=nSD[2]))
+variable<- rep(nName,nSize)
+table(variable)
+ANOdata <- data.frame(ID,variable,freq)
+str(ANOdata)
+
+head(ANOdata)
+
+ANOmodel <- aov(freq~variable,data=ANOdata)
+print(ANOmodel)
+z <- summary(ANOmodel)
+str(z)
+unlist(z)
+ANOsum <- list(Fval=unlist(z)[7],probF=unlist(z)[9])
+
+ANOPlot <- ggplot(data=ANOdata,
+                  aes(x=variable,y=freq,
+                      fill=variable)) +
+  geom_boxplot()
+print(ANOPlot)
+```
+Running this analysis with equal mean values generated mostly insignificant p values (< 0.05)
+
+### Different mean values to generate a significant pvalue
+```{r}
+library(tidyverse)
+
+ngroup <- 2
+nName <- c("Control","Treatment")
+nSize <- c(17,20)
+nMean <- c(15,30)
+nSD <- c(3,3)
+
+ID <- 1:(sum(nSize))
+
+freq <- c(rnorm(n=nSize[1], mean=nMean[1],sd=nSD[1]), 
+         rnorm(n=nSize[2], mean=nMean[2],sd=nSD[2]))
+variable<- rep(nName,nSize)
+table(variable)
+ANOdata <- data.frame(ID,variable,freq)
+str(ANOdata)
+
+head(ANOdata)
+
+ANOmodel <- aov(freq~variable,data=ANOdata)
+print(ANOmodel)
+z <- summary(ANOmodel)
+str(z)
+unlist(z)
+ANOsum <- list(Fval=unlist(z)[7],probF=unlist(z)[9])
+
+ANOPlot <- ggplot(data=ANOdata,
+                  aes(x=variable,y=freq,
+                      fill=variable)) +
+  geom_boxplot()
+print(ANOPlot)
+```
+Running this analysis with mean values that differed by 15 generated  singificant pvalues. The closer the mean values are to one another, the less likely it is to obtain a signficant pvalue. 
+
+## Adjusting sample size
+
+```{r}
+library(tidyverse)
+
+ngroup <- 2
+nName <- c("Control","Treatment")
+nSize <- c(5,5) 
+nMean <- c(30.3,20.3)
+nSD <- c(3,3)
+
+ID <- 1:(sum(nSize))
+
+freq <- c(rnorm(n=nSize[1], mean=nMean[1],sd=nSD[1]), 
+         rnorm(n=nSize[2], mean=nMean[2],sd=nSD[2]))
+variable<- rep(nName,nSize)
+table(variable)
+ANOdata <- data.frame(ID,variable,freq)
+str(ANOdata)
+
+head(ANOdata)
+
+ANOmodel <- aov(freq~variable,data=ANOdata)
+print(ANOmodel)
+z <- summary(ANOmodel)
+str(z)
+unlist(z)
+ANOsum <- list(Fval=unlist(z)[7],probF=unlist(z)[9])
+ANOsum
+
+## When adjusting the sample size it always generate a statistically signficant effect. This may due to my dataset being relatively small.
+```
+
+# Boxplots with adjusted sample size
+```{r}
+ANOPlot <- ggplot(data=ANOdata,
+                  aes(x=variable,y=freq,
+                      fill=variable)) +
+  geom_boxplot()
+print(ANOPlot)
+```
+
+## Adjusting variances 
+
+```{r}
+library(tidyverse)
+
+ngroup <- 2
+nName <- c("Control","Treatment")
+nSize <- c(17,20) 
+nMean <- c(30.3,20.3)
+nSD <- c(2,2)
+
+ID <- 1:(sum(nSize))
+
+freq <- c(rnorm(n=nSize[1], mean=nMean[1],sd=nSD[1]), 
+         rnorm(n=nSize[2], mean=nMean[2],sd=nSD[2]))
+variable<- rep(nName,nSize)
+table(variable)
+ANOdata <- data.frame(ID,variable,freq)
+str(ANOdata)
+
+head(ANOdata)
+
+ANOmodel <- aov(freq~variable,data=ANOdata)
+print(ANOmodel)
+z <- summary(ANOmodel)
+str(z)
+unlist(z)
+ANOsum <- list(Fval=unlist(z)[7],probF=unlist(z)[9])
+ANOsum
+
+```
+
+
+
+# Boxplots with adjusted variances
+```{r}
+ANOPlot <- ggplot(data=ANOdata,
+                  aes(x=variable,y=freq,
+                      fill=variable)) +
+  geom_boxplot()
+print(ANOPlot)
+```
