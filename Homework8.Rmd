@@ -1,0 +1,94 @@
+---
+title: "Homework 8"
+author: "Kendra Hodges"
+date: "10/17/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+### 1. Use the code that you worked on in the last exercise, and re-organize it following the principles of structured programming. Do all the work in a single chunk in your R markdown file, just as if you were writing a single R script. Start with all of your annotated functions, preliminary calls, and global variables. The program body should be only a few lines of code that call the appropriate functions and run them in the correct order. Make sure that the output from one function serves as the input to the next. You can either daisy-chain the functions or write separate lines of code to hold elements in temporary variables and pass the along.
+```{r}
+#--------------
+# Preliminaries
+library(ggplot2)
+######################
+# FUNCTION: createData
+# INPUTS: .csv file
+# OUTPUTS: data frame
+#---------------------
+getData <- function(nName= c("Control", "Treatment"), nSize = c(17,20), nMean = c(30.3,20.3), nSD = c(3,3)) {
+  ID <- 1:(sum(nSize))
+  freq <- c(rnorm(n=nSize[1], mean=nMean[1],sd=nSD[1]), 
+         rnorm(n=nSize[2], mean=nMean[2],sd=nSD[2]))
+variable<- rep(nName,nSize)
+table(variable)
+myData <- data.frame(ID,variable,freq)
+
+return(myData)
+}
+#----------------
+
+myData <- getData()
+
+#-------------------
+
+######################
+# FUNCTION: myANOVA
+# INPUTS:  data frame with selected x and y variables
+# OUTPUTS: summary of ANOVA
+
+myANOVA <- function(data=myData, x=myData$variable, y=myData$freq){
+  ANOVA <- aov(y~x,data=myData)
+
+return(summary(ANOVA))
+
+}
+
+#---------------------
+ANOModel <- myANOVA(getData()) 
+ANOModel
+
+######################
+# FUNCTION: plot Data
+# INPUTS: data made in data frame
+# OUTPUTS: box plot
+  
+  plotData <- function(data = myData, x = myData$variable, y = myData$freq){
+    library(ggplot2)
+    ANOPlot <- ggplot(data= myData,
+                  aes(x=variable,y=freq,
+                      fill=variable)) +
+  geom_boxplot()
+
+print(ANOPlot)
+}
+
+#------------------
+plotData()
+
+```
+
+### Once your code is up and working, modify your program do something else: record a new summary variable, code a new statistical analysis, or create a different set of random variables or output graph. Do not rewrite any of your existing functions. Instead, copy them, rename them, and then modify them to do new things. Once your new functions are written, add some more lines of program code, calling a mixture of your previous functions and your new functions to get te job done.
+
+```{r}
+#########################
+# FUNCTION: myBar
+# INPUTS: data frame and column names for the x variable 
+# OUTPUTS: Barplot
+#-------------------------
+myBar <- function(data = myData, x = myData$variable) {
+  library(ggplot2)
+  barPlot <- ggplot(data = myData,
+                    aes(x = variable,
+                        fill=variable)) +
+             geom_bar(stat="count") 
+print(barPlot)
+}
+#-------------------------
+
+myBar()
+
+```
+
