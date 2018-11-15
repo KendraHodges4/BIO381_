@@ -31,11 +31,11 @@ email: klhodges@uvm.edu
 
 ### [Homework 7: Creating Fake Data Sets](Homework7.html)
 
-### [Homeowrk 8: Structured Programming](Homework8.html)
+### [Homework 8: Structured Programming](Homework8.html)
 
 ###[Homework 10: For loops and randomization tests](Homework10.html)
 
-###[Homework 11: dvanced ggplotting](Homework11.html)
+###[Homework 11: Advanced ggplotting](Homework11.html)
 
 
 

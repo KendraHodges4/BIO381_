@@ -1,0 +1,51 @@
+---
+title: "My Favorite Albums of All Time"
+author: "Kendra Hodges"
+date: "9/12/2018"
+output: 
+  beamer_presentation: 
+    colortheme: seahorse
+    fonttheme: serif
+    incremental: yes
+    theme: Antibes
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## London Calling
+
+- \color{teal} Bullet 1
+- \color{teal} Bullet 2
+- \color{teal} Bullet 3
+
+## Led Zeppelin II
+
+\begin{picture}(320,250)
+\put(85,75){\includegraphics[height=6cm]{led.JPG}}
+\put(00,60){\begin{minipage}[t]{1\linewidth}
+{Although every album ever produced by Led Zeppelin is incredible, this has to be one of the most astounding albums to \textit{ever} be created.}
+\end{minipage}}
+\end{picture}
+
+## Incremental Bullets
+> - almost
+> - like
+> - animation    
+
+## Using bigskip
+
+For ... 
+
+\bigskip 
+\bigskip 
+\bigskip 
+
+Emphasis
+
+
+
+
+

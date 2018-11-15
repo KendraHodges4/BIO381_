@@ -1,0 +1,36 @@
+---
+title: "Homework 9"
+author: "Kendra Hodges"
+date: "10/24/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+######################
+# FUNCTION: getZeros
+# INPUTS: numeric vector
+# OUTPUTS: maximum differences between all possible pairs of elements
+#---------------------
+
+getZeros <- function(x<-c(runif(100)){
+  if(x != 0) {
+    
+                     
+```
+
+
+
+```{r}
+## write a function to calculate the number of 0's in a numeric vector
+
+## use subsetting instead of a loop to rewrite the function asa  single line of code
+
+## input = a numeric vector, output =maximum difference between all possible pairs of elements. 
+
+```
+

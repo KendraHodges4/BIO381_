@@ -1,0 +1,26 @@
+---
+title: "Beamer Presentation"
+author: "Kendra Hodges"
+date: "10/1/2018"
+output: 
+  beamer_presentation: 
+    colortheme: seahorse
+    fonttheme: serif
+    incremental: yes
+    theme: Antibes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# Variation in and Correlation between Intrinsic rate of Increase and Carrying Capacity
+ Nora Underwood
+ 
+ January 2007
+ 
+ The American Naturalist
+ 
+## Purpose of Study
+ 
+ - Information about variation in intrinsic rate of increase and carrying capacity, as well as the correlation between these parameters, is necessary in order to fully understand the dynamics of a given population.

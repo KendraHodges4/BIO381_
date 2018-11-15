@@ -1,0 +1,115 @@
+---
+title: "My Favorite Musical Bands"
+author: "Kendra Hodges"
+date: "9/12/2018"
+output:
+  beamer_presentation:
+    colortheme: fly
+    fonttheme: professionalfonts
+    incremental: yes
+    theme: JuanLesPins
+  ioslides_presentation:
+    incremental: yes
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+## The Clash
+\begin{picture}(100,250)
+\put(50,110){\includegraphics[height=4cm]{clash.JPEG}}
+\put(10,90){\begin{minipage}[t]{1\linewidth}
+{The Clash is a British punk rock band thar was formed in 1976. They were known for singing about revolution and the working class.}
+\end{minipage}}
+\end{picture}
+
+## My 3 Favorite Songs
+
+- \color{black} Train in Vain 
+- \color{black} Should I Stay or Should I Go 
+- \color{black} Police & Thieves
+
+
+## Led Zeppelin
+
+\begin{picture}(100,250)
+\put(50,110){\includegraphics[height=4cm]{LED.JPEG}}
+\put(10,90){\begin{minipage}[t]{1\linewidth}
+{Led Zeppelin was an English rock band formed in London in 1968. They are considered one of the most influential rock bands and are one of the best-selling music artists in history. The band broke up following the death of the band's drummer, John Bonham.}
+\end{minipage}}
+\end{picture}
+
+## My 3 Favorite Songs
+
+- \color{black} Over The Hills And Far Away
+- \color{black} Whole Lotta Love
+- \color{black} Bring It On Home
+
+
+## Joy Divsion
+
+\begin{picture}(100,250)
+\put(50,110){\includegraphics[height=4cm]{JOY.JPEG}}
+\put(10,90){\begin{minipage}[t]{1\linewidth}
+{Joy Division were an English rock band formed in 1976. Their debut alubm, \textit{Unknown Pleasures},was released in 1979.The band broke up in 1980 following the suicide of the lead singer, Ian Curtis, but the remaining members formed a new group called New Order. }
+\end{minipage}}
+\end{picture}
+
+## My 3 Favorite Songs
+
+- \color{black} Disorder
+- \color{black} Shadowplay
+- \color{black} Atmosphere
+
+## Rolling Stones
+
+\begin{picture}(100,250)
+\put(50,110){\includegraphics[height=4cm]{STONES.JPEG}}
+\put(10,90){\begin{minipage}[t]{1\linewidth}
+{The Rolling Stones are another English rock band formed in 1962. The Rollings Stones were an important part of the British Invasion. In 1989 they were inducted into the Rock and Roll Hall of Fame.}
+\end{minipage}}
+\end{picture}
+
+
+## My 3 Favorite Songs
+
+- \color{black} Beast of Burden
+- \color{black} Shattered
+- \color{black} Miss You
+
+## LCD Soundsystem
+\begin{picture}(100,250)
+\put(50,110){\includegraphics[height=4cm]{LCD.JPEG}}
+\put(10,90){\begin{minipage}[t]{1\linewidth}
+{LCD Soundsystem is an american rock band that was formed in Brooklyn, New York in 2002 by James Murphy. LCD soundsystem combines electronic beats with an indie rock sound. }
+\end{minipage}}
+\end{picture}
+
+
+## My 3 Favorite Songs
+- \color{black} Oh baby
+- \color{black} Someone Great
+- \color{black} Home
+
+## STRFKR
+\begin{picture}(200,250)
+\put(50,110){\includegraphics[height=4cm]{STR.JPEG}}
+\put(10,90){\begin{minipage}[t]{1\linewidth}
+{STRFKR ir an indie rock band formed in Portland, Orgeon. Their first album, \textit{STRFKR}, was  released in 2007.}
+\end{minipage}}
+\end{picture}
+
+## My 3 Favorite Songs
+- \color{black} Rawnald Gregory Erickson the Second
+- \color{black} Open Your Eyes
+- \color{black} Golden Light
+
+
+
+
+
+
+
