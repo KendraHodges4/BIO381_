@@ -41,7 +41,7 @@ print(plot1)
 
 plot1 + theme_base(base_size = 15, base_family = "serif")
 
-### try to make a gradient scale!!!!
+### Adding Gradient Color Scale
 
 plot2 <- ggplot(data=data, 
                 mapping=aes(x=Sepal.Length,y=Petal.Length, color=Petal.Length)) +
@@ -53,25 +53,26 @@ plot2 <- ggplot(data=data,
 print(plot2)
 plot2+theme_gray(base_size = 15, base_family = "serif") + scale_color_gradient(low="yellow",high="steelblue")
 
-
+# Adding color by group for scatterplot
 p1 <- ggplot(data,mapping=aes(x=Sepal.Length,y=Sepal.Width, fill=Species, color=Species)) +
   geom_point() + geom_smooth()
 print(p1)
 
+## Grey Scale Boxplot
+
 p3 <- ggplot(data=data,aes(x=Sepal.Length,y=Sepal.Width,group=Species))
 
 p3 + geom_boxplot(fill=(gray(seq(from=0.5,to=0.9,length=3))))
-# although it may not be that informative to show different colors in different boxplots
 
+# Boxplot using different colors for groups
 
 p4 <- ggplot(data,aes(x=Sepal.Length,y=Sepal.Width,fill=Species)) +
   geom_boxplot() +
   scale_fill_manual(values=wes_palettes[["Darjeeling1"]])
 print(p4)
- # THIS ONE WORKED AND IS PRETTY GOOD!
 
 
-# lets make one more graph using things from patchwork and such..
+# adding raw data
 p5 <- ggplot(data,aes(x=Sepal.Length,y=Sepal.Width,fill=Species)) +
   geom_boxplot() + scale_fill_manual(values=wes_palettes[["Darjeeling1"]]) + geom_point(position=position_jitter(width=0.2,height=0.7), color="grey60")
 print(p5)
