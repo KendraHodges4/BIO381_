@@ -1,0 +1,147 @@
+---
+title: "Three Dimensional Graphics Using Plot3D and rgl"
+author: "Kendra Hodges"
+date: "11/26/2018"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+```{r}
+library(plot3D)
+library(plot3Drgl)
+
+# install package
+data(airquality)
+head(airquality) 
+
+# Creating a 3D scatter plot. These are usefu when dealing with data containing mulitple quantiative varaibles.
+
+#create vectors that will be used at point cooridantes for graph
+x <-  airquality$Temp 
+y <- airquality$Wind
+z <- airquality$Day
+# basic three diminesional scatterplot
+scatter3D(x,y,z) 
+
+#can modify appearance of plot
+# bty changes the type of box
+scatter3D(x,y,z, bty="b2") # adding grid lines
+
+# can change point shape or size using pch (pch=1 is default) and size of points using argument cex
+scatter3D(x,y,z, bty="b2",pch=15, cex =0.5) # super small filled in boxes
+
+#manualy specifying arguments bty=u
+scatter3D(x,y,z, pch=18, bty="u",colkey = TRUE,col="steelblue", col.panel="grey", expand=0.5, col.grid="black")
+
+# color gradient
+scatter3D(x,y,z, bty="u",pch=18, colkey=TRUE, col=ramp.col(c("red","blue")), col.panel="white", col.grid="grey")
+
+# color palettes, creating a plot that will generate gg-plot like colors
+scatter3D(x,y,z, bty="b2", pch=18,col=gg2.col(100))
+
+##gg2.col(n,alpha) where n = # of colores to generate(default=100) and alpha is transparency
+
+# remove legend
+scatter3D(x,y,z, bty="b2",colkey=FALSE)
+
+# change position of legend
+scatter3D(x,y,z, bty="b2",
+          colkey=list(side=1,length=0.5))
+
+#changing view/direction of graph by assinging values to phi and theta
+# phi must be > theta in order to work
+scatter3D(x,y,z, bty="b2", colkey=TRUE, theta=0,phi=20)
+
+# adding title, axis labels and tickmarks
+scatter3D(x,y,z, bty="b2", main="Air Quality",
+          xlab="Temp",
+          ylab="Wind",
+          zlab="Day")
+
+#tick marks
+## use the argument ticktype to add tickmarks
+## two options, "simple" or "detailed"
+scatter3D(x,y,z, bty="b2", main="My 3D Scatter Plot",
+          xlab="Temp",
+          ylab="Wind",
+          zlab="Day")
+
+scatter3D(x,y,z,bty="b2", ticktype="detailed", nticks=10)
+# can use argument nticks to specify the number of ticks you want to use
+
+#add text to existing plot
+scatter3D(x,y,z, bty="g",pch=20,cex=0.8)
+text3D(x,y,z, pch=10,labels=rownames(airquality), add=TRUE, cex=0.5)
+
+
+# adding a confidence interval
+#use the argument CI with the list function in order to generate the confidence interval
+myCI<- list(x=matrix(nrow=length(z),
+                    data=rep(0.1,2*length(z))))
+head(myCI$x)
+scatter3D(x, y, z, phi = 0, bty = "g", col=gg2.col(100), colkey=TRUE,
+          pch = 18, CI = myCI)
+
+
+# Adding a regression plane
+data(airquality)
+head(airquality)
+x <- airquality$Temp
+y <- airquality$Wind
+z <- airquality$Day
+# Compute the linear regression (z = ax + by + d)
+fit <- lm(z ~ x + y)
+# predict values on regular xy grid
+grid.lines = 25
+x.pred <- seq(min(x), max(x), length.out = grid.lines)
+y.pred <- seq(min(y), max(y), length.out = grid.lines)
+xy <- expand.grid( x = x.pred, y = y.pred)
+
+z.pred <- matrix(predict(fit, newdata = xy), 
+                 nrow = grid.lines, ncol = grid.lines)
+# fitted points for droplines to surface
+fitpoints <- predict(fit)
+
+# scatter plot with regression plane using surf 
+scatter3D(x, y, z, pch = 18, cex = 2, 
+          theta = 20, phi = 20, ticktype = "detailed",
+          xlab = "Wind", ylab = "Temp", zlab = "Day",col=gg2.col(100),
+          surf = list(x = x.pred, y = y.pred, z = z.pred, facets=NA, fit = fitpoints), main = "airquality")
+
+#library(plot3Drgl)
+#plotrgl()
+
+
+```
+
+##rgl can create simple interactive 3D plots
+```{r}
+library(car)
+library(rgl)
+
+data(airquality)
+
+x <- airquality$Temp
+y <- airquality$Wind
+z <- airquality$Day
+
+scatter3d(x,y,z)
+
+#removing grid lines from plane
+scatter3d(x,y,z, grid=FALSE)
+# smooth regression
+scatter3d(x,y,z, grid=FALSE, fit="smooth")
+#removing regression plane
+scatter3d(x,y,z, surface=FALSE)
+#adding an ellipse
+scatter3d(x,y,z, surface=FALSE, ellipsoid = TRUE)
+
+
+#snap shot of plot
+rgl.snapshot(filename="plot.png")
+```
+
