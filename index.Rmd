@@ -10,6 +10,8 @@ output:
 
 ![Welcome!](/Users/kendrahodges/Desktop/Australia.JPG)
 
+![](/Users/kendrahodges/Desktop/art.JPG)
+
 email: klhodges@uvm.edu
 
 #**Helpful Links**
@@ -19,7 +21,7 @@ email: klhodges@uvm.edu
 
 ### [Homework 1: Create a Webpage](index.html)
 
-### [Homework 2: Typora Flowchart](test.Rmd)
+### [Homework 2: Typora Flowchart](Homework2.html)
 
 ### [Homework 3: Beamer Presentation](Homework3.pdf)
 

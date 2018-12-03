@@ -1,0 +1,17 @@
+---
+title: "Homework2"
+author: "Kendra Hodges"
+date: "12/3/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+### [Invertebrate Biodiversity Flowchart](TyporaFlowchart.html)
+
+
+## Pre-Graph: 
+I'm just going to draw something when i get home then take a pic and put it on my desktop and call it!
