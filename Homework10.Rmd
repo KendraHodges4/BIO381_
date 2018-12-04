@@ -48,25 +48,119 @@ myMatrix()
 ```
 ### 4. Use the code from yesterday’s class to design and conduct a randomization test for some of your own data. You will need to modify the functions that read in the data, calculate the metric, and randomize the data. Once those are set up, the program should run correctly calling your new functions. Also, to make your analysis fully repeatable, make sure you set the random number seed at the beginning (use either set.seed() in base R, or char2seed in the TeachingDemos package
 ```{r}
-#set seet
-#global variables
+# Simulating of randomization test for regression
+# October 30, 2018
+# KLH
+set.seed(100)
 library(ggplot2)
-#read data
- readData <- function()
-#calculate the metric
-  getMetric <- function()
+library(TeachingDemos)
+#char2seed("Autumn Leaves")
+
+####
+#function: readData
+
+readData <- function(fileName=NULL){
+  if(is.null(fileName)) {
+    df <- data.frame(ID=10:24,
+                     x=runif(15),
+                     y=runif(15))
+  } else {
+    df <- read.table(file=fileName,
+                     header=TRUE,
+                     sep=",",
+                     stringsAsFactors=FALSE)
+  }
+  
+  return(df)
+}
+readData()
+
+
+# Calculate the metric
+getMetric <- function(z=NULL){
+  if(is.null(z)){
+    xObs <- 1:15
+    yObs <- xObs + 10*rnorm(15)
+    z <- data.frame(ID=seq_along(xObs),xObs,yObs)}
+  . <- lm(z[,3]~z[,2])
+  . <- summary(.)
+  . <- .$coefficients[2,1]
+  slope <- .
+  return(slope)
+}
+getMetric()
+
 # create randomization
-    shuffleData <- function()
+shuffleData <- function(z=NULL){
+  if(is.null(z)){
+    xObs <- 1:15
+    yObs <- xObs + 10*rnorm(15)
+    z <- data.frame(ID=seq_along(xObs),xObs,yObs)}
+  z[,3] <- sample(z[,3])
+  return(z)
+}
+shuffleData()
+
 # calculate p value from simulated metrics
-      getPVAL <- function()
+getPVAL <- function(z=NULL){
+  if(is.null(z)){
+    z <- list(xObs=runif(1),xSim=runif(100))}
+  pLower <- mean(z[[2]]<=z[[1]]) 
+  pUpper <- mean(z[[2]]>=z[[1]]) 
+  return(c(pLower,pUpper))
+}
+
+getPVAL()
+
+# create histogram of simulated and observed metric
+
+# now use funtions to do the work!
+
+plotRanTest <- function(z=NULL) {
+  if(is.null(z)){
+    z <- list(rnorm(1),rnorm(100)) }
+  dF <- data.frame(ID=seq_along(z[[2]]),simX=z[[2]])
+  p1 <- ggplot(data=dF,mapping=aes(x=simX))
+  p1 + geom_histogram(mapping=aes(fill=I("goldenrod"),color=I("black"))) +
+    geom_vline(aes(xintercept=z[[1]],col="blue")) 
+  
+}
+
+### Now use functions to do the work!
+nSim <- 100
+xSim <- rep(NA,nSim)
+dF <- readData()
+xObs <- getMetric(dF)
+
+
+for(i in seq_len(nSim)){
+  xSim[i] <- getMetric(shuffleData(dF))
+}
+
+slopes <- list(xObs, xSim)
+
+getPVAL(slopes)
+
+plotRanTest(slopes)
+
+####
+
+#load real data
+myData <- read.csv("arthropod_data.csv", header = TRUE, stringsAsFactors = FALSE)
+
+
+#pvalue with real data
+
+myData <- read.csv("arthropod_data.csv")
+
+getPVAL<- function(data=myData){
+  if(is.null(myData)){
+  myData <- list(xObs=runif(1),xSim=runif(1000))}
+pLower <- mean(myData[[2]]<=myData[[1]]) 
+pUpper <- mean(myData[[2]]>=myData[[1]]) 
+return(c(pLower,pUpper))
+
+  }
+getPVAL()
 
 ```
-### 5.For comparison, calculate in R the standard statistical analysis you would use with these data. How does the p-value compare for the standard test versus the p value you estimated from your randomization test? If the p values seem very different, run the program again with a different starting seed (and/or increase the number of replications in your randomization test). If there are persistent differences in the p value of the standard test versus your randomization, what do you think is responsible for this difference?
-
-```{r}
-
-```
-
-
-
-
