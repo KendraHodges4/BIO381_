@@ -14,4 +14,4 @@ knitr::opts_chunk$set(echo = TRUE)
 
 
 ## Pre-Graph: 
-I'm just going to draw something when i get home then take a pic and put it on my desktop and call it!
+![](/Users/kendrahodges/Desktop/graph.JPG)
