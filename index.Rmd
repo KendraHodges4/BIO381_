@@ -7,10 +7,13 @@ output:
   theme: cayman
   highlight: github
 ---
+Welcome to my webpage!
+![](/Users/kendrahodges/Desktop/Australia.JPG)
 
-![Welcome!](/Users/kendrahodges/Desktop/Australia.JPG)
 
+here is some of my doodle art
 ![](/Users/kendrahodges/Desktop/art.JPG)
+
 
 email: klhodges@uvm.edu
 
